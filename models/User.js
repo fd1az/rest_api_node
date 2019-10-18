@@ -9,23 +9,20 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
-  }
-});
+  },
   name: {
     type: String,
     required: true
   },
   status: {
     type: String
-  }
+  },
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Post'
+    }
+  ]
+});
 
-//   },
-//   posts: [
-//     {
-//       type: Schema.Types.ObjectId,
-//       ref: 'Post'
-//     }
-//   ]
-// });
-
-// module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
